@@ -25,4 +25,7 @@ public class Tesouro {
         return this.pontos;
     }
 
+    public String toString(){
+        return this.cor;
+    }
 }
