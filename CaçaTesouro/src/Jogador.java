@@ -30,7 +30,7 @@ public class Jogador {
     this.pontuacao = pontuacao;
   }
 
-  public int getPontuacao() {
+  public double getPontuacao() {
     return this.pontuacao;
   }
 
