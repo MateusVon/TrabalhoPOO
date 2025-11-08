@@ -5,7 +5,7 @@ public class Jogo {
   private Jogador jogador1;
   private Jogador jogador2;
   private int rodadaAtual;
-  private Scanner entradaGlobal; // Para ler as jogadas
+  private Scanner entradaGlobal;
 
   // Prepara o jogo
   public Jogo() {
@@ -21,6 +21,9 @@ public class Jogo {
     // 1. Menu inicial
     System.out.println("--- BEM-VINDO AO CAÇA AO TESOURO ---");
     System.out.println("Regra: 3 Verdes (6pts), 3 Amarelos (4pts), 2 Vermelhos (10pts)");
+
+    jogador1.posicionarTesouro(this.entradaGlobal);
+    jogador2.posicionarTesouro(this.entradaGlobal);
 
     // Manda cada jogador pôr as peças
     jogador1.posicionarTesouro();

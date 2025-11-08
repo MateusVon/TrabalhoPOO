@@ -10,10 +10,10 @@ public class Jogador {
   public Jogador() {
   }
 
-  public Jogador(String nome) {   
+  public Jogador(String nome) {
     this.nome = nome;
     this.pontuacao = 0.0;
-    this.meuTabuleiro = new Tabuleiro();      
+    this.meuTabuleiro = new Tabuleiro();
 
     this.jogadasFeitas = new ArrayList<String>(); // Cria a lista de jogadas vazia
   }
@@ -44,14 +44,14 @@ public class Jogador {
 
   public int receberAtaque(int linha, int coluna) {
     Tesouro tesouroAlvo = this.meuTabuleiro.verificarPosicao(linha, coluna);
-    
-    if(tesouroAlvo != null) {
+
+    if (tesouroAlvo != null) {
       double pontosGanhos = tesouroAlvo.getPontos();
 
       this.meuTabuleiro.removerTesouro(linha, coluna);
 
       return pontosGanhos;
-    }else{
+    } else {
       return 0.0;
     }
   }
@@ -66,32 +66,42 @@ public class Jogador {
     this.jogadasFeitas.add(coordenada);
   }
 
-  public void posicionarTesouro(){
-    System.out.println("---" + this.nome + ", posicione seus tesouros! ---");
-    Scanner entrada = new Scanner(System.in);
+  public boolean posicionarTesouro(int linha, int coluna, String cor) {
+    Tesouro novoTesouro = new Tesouro(cor);
 
-    for(int i = 0; i <3; i++){
-      System.out.println("Posicione seu Tesouro VERDE(" + (i+1) + "/3):");
-    }
-
-    System.out.println(this.nome + " terminou de posicionar!");
+    boolean sucesso = this.meuTabuleiro.posicionarTesouro(linha, coluna, novoTesouro);
+    return sucesso;
   }
 
-  public boolean posicionarTesouro(int linha, int coluna){
+  public boolean posicionarTesouro(int linha, int coluna) {
     return this.posicionarTesouro(linha, coluna, "Amarelo");
+
+    loopPosicionamento("verde", 3, entrada);
+    loopPosicionamento("amarelo", 3, entrada);
+    loopPosicionamento("vermelho", 2, entrada);
+
+    System.out.println("---" + this.nome + " terminou de posicionar! ---");
+
   }
 
-  public boolean posicionarTesouro(int linha, int coluna, String cor){
-    if (this.meuTabuleiro.isPosicaoLivre(linha, coluna)){
-      Tesouro novoTesouro = new Tesouro(cor);
+  private void loopPosicionamento(String cor, int quantidade, Scanner entrada) {
+    for (int i = 0; i < quantidade; i++) {
+      boolean sucesso = false;
 
-      this.meuTabuleiro.adicionarTesouro(novoTesouro, linha, coluna);
+      while (!sucesso) {
+        System.out.println("\nPosicione seu Tesouro" + cor.toUpperCase() + "(" + (i + 1) + "/" + quantidade + "):");
+        System.out.println(" Digite a linha (0-9)");
+        int linha = entrada.nextInt();
 
-      return true;
-    }else {
-      System.out.println("Erro: Posição(" + linha + "," + coluna + ") já está ocupada!");
-      return false;
+        sucesso = this.posicionarTesouro(linha, linha, cor);
+
+      }
     }
+  }
+
+  public void posicionarTesouro(Scanner entrada) {
+    System.out.println("--- " + this.nome + ", posicione seus tesouros! ---");
+    System.out.println("(O tabuleiro é 10x10, use linhas e colunas de 0 a 9)");
   }
 
   public void adicionarPontos(double pontosGanhos) {
