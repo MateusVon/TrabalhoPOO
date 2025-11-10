@@ -93,7 +93,7 @@ public class Jogador {
         System.out.println("\nPosicione seu Tesouro" + cor.toUpperCase() + "(" + (i + 1) + "/" + quantidade + "):");
         System.out.println(" Digite uma linha (0-9): ");
         int linha = entrada.nextInt();
-        System.out.println("Digite a coluna (10-09): ");
+        System.out.println("Digite a coluna (0-9): ");
         int coluna = entrada.nextInt();
 
         sucesso = this.posicionarTesouro(linha, coluna, cor);

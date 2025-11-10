@@ -15,7 +15,7 @@ public class Jogo {
     this.rodadaAtual = 1;
   }
 
-  // Método principal que corre o jogo todo.
+  // Método principal que faz o jogo funcionar.
 
   public void executarPartida() {
     // 1. Menu inicial
@@ -37,10 +37,11 @@ public class Jogo {
       // Turno do Jogador 2
       executarTurno(jogador2, jogador1);
 
+      // Define um limite de rodadas para o jogo
       this.rodadaAtual++;
       if (this.rodadaAtual > 10) {
         jogoAtivo = false;
-        declararVencedorPorPontos();
+        declararVencedorPorPontos(); // Quando o jogo acaba, declara o jogador com mais pontos como vencedor
       }
     }
   }
@@ -49,10 +50,10 @@ public class Jogo {
   private void executarTurno(Jogador atacante, Jogador defensor) {
     System.out.println("Turno de: " + atacante.getNome());
 
-    // Pedir coordenadas (linha e coluna)
-    System.out.print("Digite a LINHA (0-9) do seu ataque: ");
+    // Pede as coordenadas da jogada (linha e coluna)
+    System.out.print("Digite a LINHA (0-9) para procurar ");
     int linha = entradaGlobal.nextInt();
-    System.out.print("Digite a COLUNA (0-9) do seu ataque: ");
+    System.out.print("Digite a COLUNA (0-9) para procurar ");
     int coluna = entradaGlobal.nextInt();
 
     // Validar se a jogada é repetida
@@ -61,9 +62,10 @@ public class Jogo {
       return;
     }
 
-    // Se for nova, regista a tentativa
+    // Se for nova, registra a tentativa
     atacante.registrarTentativa(linha, coluna);
 
+    // Executa o "ataque"
     double pontosGanhos = defensor.receberAtaque(linha, coluna);
 
     // Processa o resultado
@@ -83,6 +85,7 @@ public class Jogo {
     }
   }
 
+  // Cria um objeto Jogo para iniciar a partida
   public static void main(String[] args) {
     Jogo minhaPartida = new Jogo();
     minhaPartida.executarPartida();
