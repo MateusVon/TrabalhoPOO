@@ -22,12 +22,9 @@ public class Jogo {
     System.out.println("--- BEM-VINDO AO CAÇA AO TESOURO ---");
     System.out.println("Regra: 3 Verdes (6pts), 3 Amarelos (4pts), 2 Vermelhos (10pts)");
 
+    // Faz cada jogador colocar os Tesouros
     jogador1.posicionarTesouro(this.entradaGlobal);
     jogador2.posicionarTesouro(this.entradaGlobal);
-
-    // Manda cada jogador pôr as peças
-    jogador1.posicionarTesouro();
-    jogador2.posicionarTesouro();
 
     // 2. Loop Principal do Jogo
     boolean jogoAtivo = true;
@@ -49,7 +46,6 @@ public class Jogo {
   }
 
   // Executa a jogada de um jogador.
-
   private void executarTurno(Jogador atacante, Jogador defensor) {
     System.out.println("Turno de: " + atacante.getNome());
 
@@ -75,7 +71,7 @@ public class Jogo {
       System.out.println("ACERTOU! Ganhou " + pontosGanhos + " pontos!");
       atacante.adicionarPontos(pontosGanhos);
     } else {
-      System.out.println("ÁGUA! Nenhum tesouro aí.");
+      System.out.println("Nenhum tesouro aí.");
     }
   }
 

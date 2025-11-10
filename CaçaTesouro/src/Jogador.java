@@ -42,7 +42,7 @@ public class Jogador {
     return this.meuTabuleiro;
   }
 
-  public int receberAtaque(int linha, int coluna) {
+  public double receberAtaque(int linha, int coluna) {
     Tesouro tesouroAlvo = this.meuTabuleiro.verificarPosicao(linha, coluna);
 
     if (tesouroAlvo != null) {
@@ -76,13 +76,14 @@ public class Jogador {
   public boolean posicionarTesouro(Scanner entrada) {
     System.out.println("---" + this.nome + ", posicione seus tesouros! ---");
     System.out.println("(O tabuleiro é 10x1, use linha e colunas de 0 a 9)");
-    return this.posicionarTesouro(linha, coluna, "Amarelo");
+    
 
     loopPosicionamento("verde", 3, entrada);
     loopPosicionamento("amarelo", 3, entrada);
     loopPosicionamento("vermelho", 2, entrada);
 
     System.out.println("---" + this.nome + " terminou de posicionar! ---");
+    return this.posicionarTesouro(linha, coluna, "Amarelo");
 
   }
 
@@ -97,13 +98,15 @@ public class Jogador {
         System.out.println("Digite a coluna (10-09): ");
         int coluna = entrada.nextInt();
 
-        sucesso = this.posicionarTesouro(linha, linha, cor);
+        sucesso = this.posicionarTesouro(linha, coluna, cor);
 
       }
-      public boolean posicionarTesouro (int linha, int coluna){
-        return this.posicionarTesouro(linha, coluna, "Amarelo");
-      }
+
     }
+  }
+
+  public boolean posicionarTesouro(int linha, int coluna) {
+    return this.posicionarTesouro(linha, coluna, "Amarelo");
   }
 
   public void posicionarTesouro(Scanner entrada) {
