@@ -45,6 +45,7 @@ public class Jogador {
   public double receberAtaque(int linha, int coluna) {
     Tesouro tesouroAlvo = this.meuTabuleiro.verificarPosicao(linha, coluna);
 
+    // Condição para verificar se acertouo tesouro e remove-lo;
     if (tesouroAlvo != null) {
       double pontosGanhos = tesouroAlvo.getPontos();
 
@@ -56,16 +57,20 @@ public class Jogador {
     }
   }
 
-  public boolean jaJogou(int linha, int coluna) {
+  // Verifica se o jogador ja tentou "cavar" nessa coordenada,
+  // usando o ArrayList 'jogadasFeitas'
+  public boolean jaCavou(int linha, int coluna) {
     String coordenada = linha + "," + coluna;
     return this.jogadasFeitas.contains(coordenada);
   }
 
+  // Adiciona uma cordenada ao histórico de tentativas
   public void registrarTentativa(int linha, int coluna) {
     String coordenada = linha + "," + coluna;
     this.jogadasFeitas.add(coordenada);
   }
 
+  // Posiciona o tesouro de uma cor especifica
   public boolean posicionarTesouro(int linha, int coluna, String cor) {
     Tesouro novoTesouro = new Tesouro(cor);
 
@@ -73,34 +78,31 @@ public class Jogador {
     return sucesso;
   }
 
-  public void posicionarTesouro(Scanner entrada) {
+  public void posicionarTesouro() {
     System.out.println("---" + this.nome + ", posicione seus tesouros! ---");
     System.out.println("(O tabuleiro é 10x1, use linha e colunas de 0 a 9)");
-    
 
-    loopPosicionamento("verde", 3, entrada);
-    loopPosicionamento("amarelo", 3, entrada);
-    loopPosicionamento("vermelho", 2, entrada);
+    loopPosicionamento("verde", 3);
+    loopPosicionamento("amarelo", 3);
+    loopPosicionamento("vermelho", 2);
 
     System.out.println("---" + this.nome + " terminou de posicionar! ---");
   }
 
-  private void loopPosicionamento(String cor, int quantidade, Scanner entrada) {
+  private void loopPosicionamento(String cor, int quantidade) {
+    Random aleatorio = new Random();
+
     for (int i = 0; i < quantidade; i++) {
       boolean sucesso = false;
 
       while (!sucesso) {
-        System.out.println("\nPosicione seu Tesouro" + cor.toUpperCase() + "(" + (i + 1) + "/" + quantidade + "):");
-        System.out.println(" Digite uma linha (0-9): ");
-        int linha = entrada.nextInt();
-        System.out.println("Digite a coluna (0-9): ");
-        int coluna = entrada.nextInt();
+        int linha = aleatorio.nextInt(10);
+        int coluna = aleatorio.nextInt(10);
 
         sucesso = this.posicionarTesouro(linha, coluna, cor);
-
       }
-
     }
+
   }
 
   public boolean posicionarTesouro(int linha, int coluna) {
