@@ -85,9 +85,7 @@ public class Jogo {
           if (this.jogoComecou) {
             System.out.println("\n--- Rodada " + this.rodadaAtual + (" ---"));
 
-            executarTurno(); // Jogador 1 procura tesouros do jogador 2
-            menu();
-            executarTurno(); // Jogador 2 procura tesouros do jogador 1
+            executarTurno();
 
             this.rodadaAtual++;
             if (this.rodadaAtual > 10) {
@@ -127,7 +125,7 @@ public class Jogo {
   }
 
   // Gerencia a fase de posicionamento dos dois jogadores
-  private void faseDePosicionamento(){
+  private void faseDePosicionamento() {
     System.out.println("--- FASE DE POSICIONAMENTO: JOGADOR 1 ---");
     posicionarTesourosJogador(jogador1);
 
@@ -136,7 +134,7 @@ public class Jogo {
   }
 
   // Gerencia o loop para um jogador posicionar os 8 tesouros
-  private void posicionarTesourosJogador(Jogador jogador){
+  private void posicionarTesourosJogador(Jogador jogador) {
     loopPosiciona(jogador, 3, "verde");
     loopPosiciona(jogador, 3, "amarelo");
     loopPosiciona(jogador, 2, "vermelho");
@@ -145,14 +143,14 @@ public class Jogo {
   }
 
   // Loop para posicionar
-  private void loopPosiciona(Jogador jogador, int quant, String cor){
+  private void loopPosiciona(Jogador jogador, int quant, String cor) {
     int tesourosPosicionados = 0;
     int linha, coluna;
     boolean sucesso;
 
     System.out.println("\n" + jogador.getNome() + ", posicione seus " + quant + " tesouros da cor " + cor);
 
-    while(tesourosPosicionados < quant){
+    while (tesourosPosicionados < quant) {
       System.out.println("Posicionando tesouro " + (tesourosPosicionados + 1));
       System.out.print("Informe a linha (0 - 9): ");
       linha = entradaGlobal.nextInt();
@@ -161,11 +159,11 @@ public class Jogo {
 
       sucesso = jogador.posicionarTesouro(linha, coluna, cor);
 
-      if(sucesso){
+      if (sucesso) {
         tesourosPosicionados++;
         System.out.println("Tesouro posicionado!");
-        //jogador.getMeuTabuleiro().exibeMapa();
-      }else{
+        // jogador.getMeuTabuleiro().exibeMapa();
+      } else {
         System.out.println("Tente novamente.");
       }
     }
