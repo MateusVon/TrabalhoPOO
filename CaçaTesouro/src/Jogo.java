@@ -192,6 +192,7 @@ public class Jogo {
         System.out.println("Acertou! Ganhou " + pontosGanhos + " pontos!");
         atacante.adicionarPontos(pontosGanhos);
       } else {
+        atacante.registrarResultadoDoAtaque(linha, coluna, 0);
         System.out.println("Nenhum tesouro aí.");
       }
     }
