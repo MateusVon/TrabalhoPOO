@@ -49,20 +49,6 @@ public class Jogador {
     return this.meuTabuleiro;
   }
 
-  public double receberAtaque(int linha, int coluna) {
-    Tesouro tesouroAlvo = this.meuTabuleiro.verificarPosicao(linha, coluna);
-
-    // Condição para verificar se acertou o tesouro e remove-lo;
-    if (tesouroAlvo != null) {
-      double pontosGanhos = tesouroAlvo.getPontos();
-
-      this.meuTabuleiro.removerTesouro(linha, coluna);
-
-      return pontosGanhos;
-    } else {
-      return 0.0;
-    }
-  }
 
   // Verifica se o jogador ja tentou "cavar" nessa coordenada,
   // usando o ArrayList 'jogadasFeitas'
