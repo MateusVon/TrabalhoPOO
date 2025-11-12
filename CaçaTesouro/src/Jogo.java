@@ -143,12 +143,13 @@ public class Jogo {
       System.out.println("Erro! Você já cavou ai. Perde o turno");
     } else {
       atacante.registrarTentativa(linha, coluna);
-      double pontosGanhos = defensor.receberAtaque(linha, coluna);
-      atacante.registrarResultadoDoAtaque(linha, coluna, pontosGanhos);
-      if (pontosGanhos > 0) {
+      Tesouro tesouroAchado = defensor.getMeuTabuleiro().receberAtaque(linha, coluna);
+      if(tesouroAchado != null){
+        double pontosGanhos = tesouroAchado.getPontos();
+        atacante.registrarResultadoDoAtaque(linha, coluna, pontosGanhos);
         System.out.println("Acertou! Ganhou " + pontosGanhos + " pontos!");
         atacante.adicionarPontos(pontosGanhos);
-      } else {
+      }else {
         System.out.println("Nenhum tesouro aí.");
       }
     }

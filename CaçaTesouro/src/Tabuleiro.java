@@ -40,7 +40,7 @@ public class Tabuleiro {
       return null;
     }
     // Condição para verificar se acertou o tesouro e remove-lo;
-    if (mapaTesouros[linha][coluna] != null) {
+    if (!posicaoLivre(linha, coluna)) {
       Tesouro achou = mapaTesouros[linha][coluna];
       mapaTesouros[linha][coluna] = null;
       return achou;
