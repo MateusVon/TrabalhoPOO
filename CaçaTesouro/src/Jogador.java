@@ -4,7 +4,6 @@ public class Jogador {
   private String nome;
   private double pontuacao;
   private Tabuleiro meuTabuleiro; // Composição
-
   private ArrayList<String> jogadasFeitas;
   private char[][] mapaDeTesouros;
 
