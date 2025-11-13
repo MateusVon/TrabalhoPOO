@@ -92,6 +92,11 @@ public class Jogo {
               jogoAtivo = false;
               declararVencedorPorPontos();
             }
+            if(jogadorDaVez.getPontuacao() == 50.0){
+              jogoAtivo = false;
+              System.out.println("\n" + jogadorDaVez.getNome() + " achou todos os tesouros!");
+              declararVencedorPorPontos();
+            }
           } else {
             System.out.println("Posicione os tesouros primeiro (Opcao 1)!");
           }

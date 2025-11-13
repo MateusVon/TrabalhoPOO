@@ -3,7 +3,7 @@ import java.util.*;
 public class Jogador {
   private String nome;
   private double pontuacao;
-  private Tabuleiro meuTabuleiro;
+  private Tabuleiro meuTabuleiro; // Composição
 
   private ArrayList<String> jogadasFeitas;
   private char[][] mapaDeTesouros;
@@ -14,7 +14,7 @@ public class Jogador {
   public Jogador(String nome) {
     this.nome = nome;
     this.pontuacao = 0.0;
-    this.meuTabuleiro = new Tabuleiro();
+    this.meuTabuleiro = new Tabuleiro(); // Composição
 
     this.jogadasFeitas = new ArrayList<String>(); // Cria a lista de jogadas vazia
     this.mapaDeTesouros = new char[10][10];
