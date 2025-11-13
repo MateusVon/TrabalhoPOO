@@ -8,9 +8,6 @@ public class Jogador {
   private ArrayList<String> jogadasFeitas;
   private char[][] mapaDeTesouros;
 
-  public Jogador() {
-  }
-
   public Jogador(String nome) {
     this.nome = nome;
     this.pontuacao = 0.0;

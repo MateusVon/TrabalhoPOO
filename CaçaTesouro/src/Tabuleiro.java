@@ -47,19 +47,4 @@ public class Tabuleiro {
     }
     return null;
   }
-
-  public void exibeMapa() {
-    String cor;
-    for (int i = 0; i < this.mapaTesouros.length; i++) {
-      for (int j = 0; j < this.mapaTesouros[i].length; j++) {
-        if (this.mapaTesouros[i][j] == null) {
-          System.out.print("~ ");
-        } else {
-          cor = this.mapaTesouros[i][j].getCor();
-          System.out.print(cor + " ");
-        }
-      }
-      System.out.println();
-    }
-  }
 }

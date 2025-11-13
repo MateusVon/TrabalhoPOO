@@ -84,7 +84,6 @@ public class Jogo {
         case 2: // Iniciar Rodada
           if (this.jogoComecou) {
             System.out.println("\n--- Rodada " + this.rodadaAtual + (" ---"));
-
             executarTurno();
 
             this.rodadaAtual++;
@@ -153,10 +152,10 @@ public class Jogo {
     int linha, coluna;
     boolean sucesso;
 
-    System.out.println("\n" + jogador.getNome() + ", posicione seus " + quant + " tesouros da cor " + cor);
+    System.out.println("\n" + jogador.getNome() + ", posicione seus " + quant + " tesouros da cor " + cor + "!");
 
     while (tesourosPosicionados < quant) {
-      System.out.println("Posicionando tesouro " + (tesourosPosicionados + 1));
+      System.out.println("\n--- Posicionando " + (tesourosPosicionados + 1) + "º tesouro " + cor + " ---\n");
       System.out.print("Informe a linha (0 - 9): ");
       linha = entradaGlobal.nextInt();
       System.out.print("--- Informe a coluna (0 - 9): ");
@@ -166,10 +165,9 @@ public class Jogo {
 
       if (sucesso) {
         tesourosPosicionados++;
-        System.out.println("--- Tesouro posicionado! ---");
-        // jogador.getMeuTabuleiro().exibeMapa();
+        System.out.println("\n--- Tesouro posicionado! ---");
       } else {
-        System.out.println("--- Tente novamente. ---" );
+        System.out.println("\n--- Tente novamente. ---\n" );
       }
     }
   }
