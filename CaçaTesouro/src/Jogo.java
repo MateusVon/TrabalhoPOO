@@ -83,7 +83,8 @@ public class Jogo {
           break;
         case 2: // Iniciar Rodada
           if (this.jogoComecou) {
-            System.out.println("\n--- Rodada " + this.rodadaAtual + (" ---"));
+            System.out.println("\n--- Rodada " + this.rodadaAtual + " ---");
+
             executarTurno();
 
             this.rodadaAtual++;
@@ -156,7 +157,7 @@ public class Jogo {
 
     while (tesourosPosicionados < quant) {
       System.out.println("\n--- Posicionando " + (tesourosPosicionados + 1) + "º tesouro " + cor + " ---\n");
-      System.out.print("Informe a linha (0 - 9): ");
+      System.out.print("--- Informe a linha (0 - 9): ");
       linha = entradaGlobal.nextInt();
       System.out.print("--- Informe a coluna (0 - 9): ");
       coluna = entradaGlobal.nextInt();
@@ -167,7 +168,7 @@ public class Jogo {
         tesourosPosicionados++;
         System.out.println("\n--- Tesouro posicionado! ---");
       } else {
-        System.out.println("\n--- Tente novamente. ---\n" );
+        System.out.println("\n--- Tente novamente. ---\n");
       }
     }
   }
@@ -205,11 +206,10 @@ public class Jogo {
   private void declararVencedorPorPontos() {
     if (jogador1.getPontuacao() > jogador2.getPontuacao()) {
       System.out.println("Jogador 1 VENCEU!");
-    } 
-    else if(jogador1.getPontuacao() == jogador2.getPontuacao()){
+    } else if (jogador1.getPontuacao() == jogador2.getPontuacao()) {
       System.out.println("--- É um empate! ---");
-    }
-    else {
+      System.out.println("--- O jogo acabou ---");
+    } else {
       System.out.println("Jogador 2 VENCEU");
     }
   }
