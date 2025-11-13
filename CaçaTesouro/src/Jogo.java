@@ -213,10 +213,4 @@ public class Jogo {
       System.out.println("Jogador 2 VENCEU");
     }
   }
-
-  // Cria um objeto Jogo para iniciar a partida
-  public static void main(String[] args) {
-    Jogo minhaPartida = new Jogo();
-    minhaPartida.executarPartida();
-  }
 }
