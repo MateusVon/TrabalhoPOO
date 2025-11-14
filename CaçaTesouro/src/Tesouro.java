@@ -27,6 +27,6 @@ public class Tesouro {
   }
 
   public String toString() {
-    return this.cor;
+    return "Tesouro [cor = " + this.cor + ", pontos = " + this.pontos + "]";
   }
 }
