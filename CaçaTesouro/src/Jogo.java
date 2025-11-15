@@ -109,6 +109,7 @@ public class Jogo {
               jogoAtivo = false;
               System.out.println("\n" + jogadorDaVez.getNome() + " achou todos os tesouros!");
               declararVencedorPorPontos();
+              System.out.println("--- Pontuaçao Final ---" + "\n- Jogador 1: " +jogador1.getPontuacao() + "\n- Jogador 2: "+ jogador2.getPontuacao());
             }
           } else {
             System.out.println("Posicione os tesouros primeiro (Opcao 1)!");
