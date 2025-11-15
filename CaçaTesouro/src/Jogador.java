@@ -50,15 +50,28 @@ public class Jogador {
     this.jogadasFeitas.add(coordenada);
   }
 
+  public boolean posicaoValida(int linha, int coluna) {
+    if (!(linha >= 0 && linha < 10 && coluna >= 0 && coluna < 10)) {
+      return false;
+    }
+    return true;
+  }
+
   // Atualiza o mapa de ataque com o resultado das jogadas
-  public void registrarResultadoDoAtaque(int linha, int coluna, double pontosGanhos) {
+  public boolean registrarResultadoDoAtaque(int linha, int coluna, double pontosGanhos) {
+     if(!posicaoValida(linha, coluna)){
+      System.out.println("Posiçao inválida! Linha e coluna deve ser entre 0 e 9.");
+      return false;
+    }
     if (pontosGanhos > 0) {
       this.mapaDeTesouros[linha][coluna] = 'X'; // 'X' para ACERTO
+      return true;
     } else {
       this.mapaDeTesouros[linha][coluna] = 'O'; // 'O' para ERRO
+      return true;
     }
   }
-  
+
   // Exibe no terminal onde o jogador já cavou
   public void exibirIlhaTesouros() {
     System.out.println("--- Ilha de Tesouros de " + this.nome + " ---");
