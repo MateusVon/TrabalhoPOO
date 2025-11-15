@@ -224,8 +224,7 @@ public class Jogo {
     this.jogadorDaVez = defensor;
   }
 
-  // Compara quem tem mais pontos no final do jogo e declara o vencedor ou o
-  // empate
+  // Compara quem tem mais pontos no final do jogo e declara o vencedor ou o empate
   private void declararVencedorPorPontos() {
     if (jogador1.getPontuacao() > jogador2.getPontuacao()) {
       System.out.println("Jogador 1 VENCEU!");
