@@ -59,7 +59,7 @@ public class Jogador {
     }
   }
   
-  // Imprime no terminal onde o jogador já cavou
+  // Exibe no terminal onde o jogador já cavou
   public void exibirIlhaTesouros() {
     System.out.println("--- Ilha de Tesouros de " + this.nome + " ---");
     System.out.println(" ");
