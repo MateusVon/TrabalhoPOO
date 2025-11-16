@@ -50,12 +50,6 @@ public class Jogador {
     this.jogadasFeitas.add(coordenada);
   }
 
-  public boolean posicaoValida(int linha, int coluna) {
-    if (!(linha >= 0 && linha < 10 && coluna >= 0 && coluna < 10)) {
-      return false;
-    }
-    return true;
-  }
 
   // Atualiza o mapa de ataque com o resultado das jogadas
   public void registrarResultadoDoAtaque(int linha, int coluna, double pontosGanhos) {
