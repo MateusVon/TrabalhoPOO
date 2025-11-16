@@ -109,7 +109,8 @@ public class Jogo {
               jogoAtivo = false;
               System.out.println("\n" + jogadorDaVez.getNome() + " achou todos os tesouros!");
               declararVencedorPorPontos();
-              System.out.println("--- Pontuaçao Final ---" + "\n- Jogador 1: " +jogador1.getPontuacao() + "\n- Jogador 2: "+ jogador2.getPontuacao());
+              System.out.println("--- Pontuaçao Final ---" + "\n- Jogador 1: " + jogador1.getPontuacao()
+                  + "\n- Jogador 2: " + jogador2.getPontuacao());
             }
           } else {
             System.out.println("Posicione os tesouros primeiro (Opcao 1)!");
@@ -183,7 +184,7 @@ public class Jogo {
       if (sucesso) {
         tesourosPosicionados++; // incrementa somente se for posicionado corretamente
         System.out.println("\n--- Tesouro posicionado! ---");
-      } 
+      }
     }
   }
 
@@ -236,11 +237,17 @@ public class Jogo {
   private void declararVencedorPorPontos() {
     if (jogador1.getPontuacao() > jogador2.getPontuacao()) {
       System.out.println("Jogador 1 VENCEU!");
+      System.out.println("--- Pontuaçao Final ---" + "\n- Jogador 1: " + jogador1.getPontuacao() + "\n- Jogador 2: "
+          + jogador2.getPontuacao());
     } else if (jogador1.getPontuacao() == jogador2.getPontuacao()) {
       System.out.println("--- É um empate! ---");
       System.out.println("--- O jogo acabou ---");
+      System.out.println("--- Pontuaçao Final ---" + "\n- Jogador 1: " + jogador1.getPontuacao() + "\n- Jogador 2: "
+          + jogador2.getPontuacao());
     } else {
       System.out.println("Jogador 2 VENCEU");
+      System.out.println("--- Pontuaçao Final ---" + "\n- Jogador 1: " + jogador1.getPontuacao() + "\n- Jogador 2: "
+          + jogador2.getPontuacao());
     }
   }
 }
